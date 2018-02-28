@@ -4,7 +4,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'searchable-spinner'
 
-    publishedGroupId = 'com.android.searchablespinner'
+    publishedGroupId = 'com.github.AnithJo'
     libraryName = 'SearchableSpinnerLib'
     artifact = 'searchable-spinner'
 
@@ -70,7 +70,7 @@ bintray {
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = "com.android.searchablespinner"
+group = "com.github.AnithJo"
 
 install {
     repositories.mavenInstaller {

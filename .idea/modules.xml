@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SearchableSpinnerApp.iml" filepath="$PROJECT_DIR$/SearchableSpinnerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/searchablespinnerlib/searchablespinnerlib2.iml" filepath="$PROJECT_DIR$/searchablespinnerlib/searchablespinnerlib2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/searchablespinnerlib/searchablespinnerlib.iml" filepath="$PROJECT_DIR$/searchablespinnerlib/searchablespinnerlib.iml" />
+      <module fileurl="file://D:\MyProjects\SearchableSpinnerApp\searchablespinnerlib\searchablespinnerlib2.iml" filepath="D:\MyProjects\SearchableSpinnerApp\searchablespinnerlib\searchablespinnerlib2.iml" />
     </modules>
   </component>
 </project>
