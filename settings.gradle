@@ -1,1 +1,1 @@
-include ':app', ':searchablespinnerlib2'
+include ':app', ':searchablespinnerlib'
