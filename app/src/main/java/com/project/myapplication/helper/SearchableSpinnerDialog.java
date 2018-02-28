@@ -2,6 +2,7 @@ package com.project.myapplication.helper;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -23,19 +24,22 @@ public class SearchableSpinnerDialog {
 
 
     Activity context;
-    String dTitle;
+    String dTitle, closeText;
     ArrayList<String> itemsString;
     OnSpinnerItemClick onSpinerItemClick;
+    String itemTextColorCode;
 
     AlertDialog alertDialog;
     int pos;
     int style;
 
 
-    public SearchableSpinnerDialog(Activity activity, ArrayList<String> itemsString,String dialogTitle) {
+    public SearchableSpinnerDialog(Activity activity, ArrayList<String> itemsString,String dialogTitle, String closeText, String itemTextColorCode) {
         this.itemsString = itemsString;
         this.context = activity;
         this.dTitle=dialogTitle;
+        this.closeText=closeText;
+        this.itemTextColorCode=itemTextColorCode;
 //        this.style=style;
     }
 
@@ -49,7 +53,9 @@ public class SearchableSpinnerDialog {
         View v = context.getLayoutInflater().inflate(R.layout.dialog_layout, null);
         TextView rippleViewClose = (TextView) v.findViewById(R.id.close);
         TextView title = (TextView) v.findViewById(R.id.spinerTitle);
+        TextView closeTextView = (TextView) v.findViewById(R.id.close);
         title.setText(dTitle);
+        closeTextView.setText(closeText);
         final ListView listView = (ListView) v.findViewById(R.id.list);
         final EditText searchBox = (EditText) v.findViewById(R.id.searchBox);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.items_view, itemsString);
@@ -64,6 +70,7 @@ public class SearchableSpinnerDialog {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
                 TextView t=(TextView)view.findViewById(R.id.text1);
+                t.setTextColor(Color.parseColor(itemTextColorCode));
                 for(int j=0;j<itemsString.size();j++)
                 {
                     if(t.getText().toString().equalsIgnoreCase(itemsString.get(j).toString()))

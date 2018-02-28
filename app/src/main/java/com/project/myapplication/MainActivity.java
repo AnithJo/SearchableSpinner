@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             stateList.add(stateArray[i]);
         }
 
-        searchableSpinnerDialog = new SearchableSpinnerDialog(this, stateList, "Select State");
+        searchableSpinnerDialog = new SearchableSpinnerDialog(this, stateList, "Select State", "close", "#000000");
 
         btnClick.setOnClickListener(this);
 
