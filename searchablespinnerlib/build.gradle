@@ -1,40 +1,18 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'searchable-spinner'
-
-    publishedGroupId = 'com.github.AnithJo'
-    libraryName = 'SearchableSpinnerLib'
-    artifact = 'searchable-spinner'
-
-    libraryDescription = 'A simple spinner with an extra functionality of searching the items in the spinner.'
-
-    siteUrl = 'https://github.com/AnithJo/android_searchable_spinner'
-    gitUrl = 'https://github.com/AnithJo/android_searchable_spinner.git'
-
-    libraryVersion = '1.0'
-
-    developerId = 'AnithJo'
-    developerName = 'Anitha'
-    developerEmail = 'anithajothi776@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-def siteUrl = 'https://github.com/AnithJo/android_searchable_spinner'
-def gitUrl = 'https://github.com/AnithJo/android_searchable_spinner.git'
-
 android {
     compileSdkVersion 26
+
+
+
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -46,63 +24,6 @@ android {
 
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-apply plugin: 'com.jfrog.bintray'
-
-version = "1.3.1"
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = "SearchableSpinner"
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
-
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = "com.github.AnithJo"
-
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-                name 'A simple spinner with an extra ability to search for the items.'
-                url siteUrl
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'Anitha'
-                        name 'AnithJo'
-                        email 'anithajothi776@gmail.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-
-                }
-            }
-        }
-    }
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -110,27 +31,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-task findConventions << {
-    println project.getConvention()
 }
