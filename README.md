@@ -12,7 +12,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
  	dependencies {
-	        compile 'com.github.AnithJo.android_searchable_spinner:app:1.0'
+	        compile 'com.github.AnithJo.SearchableSpinner:app:1.0'
 	}
 
 
